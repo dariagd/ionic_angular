@@ -1,13 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+<ion-header>
+  <ion-toolbar color="success">
     <ion-title>
-      Action Sheets
+      Ionic Alert Example
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <button ion-button (click)="openMenu()">
+<ion-content color="light">
+<!--  <button -->
+  <ion-button (click)="openMenu()">
     Show Action Sheet
-  </button>
+  </ion-button>
+<!--  <button color="primary">-->
+    <ion-button (click)="showAlert()">
+      Basic Alert
+    </ion-button>
+<!--  </button>-->
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActionSheetController } from "@ionic/angular";
+import {ActionSheetController, AlertController} from "@ionic/angular";
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,8 @@ import { ActionSheetController } from "@ionic/angular";
 })
 export class HomePage {
 
-  constructor( public actionSheetCtrl: ActionSheetController) { }
+  constructor( public actionSheetCtrl: ActionSheetController,
+               public alertCtrl: AlertController) { }
 
   async openMenu(){
     const actionSheet = await this.actionSheetCtrl.create({
@@ -58,5 +59,17 @@ export class HomePage {
 
     const { role, data} = await actionSheet.onDidDismiss();
     console.log('onDismiss resolved with role and data', role, data);
+  }
+
+  async showAlert(){
+    const alert = await this.alertCtrl.create({
+      header: 'Alert',
+      subHeader: 'Some Alert',
+      message: 'Are you sure?',
+      buttons: ['Yes', 'No']
+    });
+    await alert.present();
+    const result = await alert.onDidDismiss();
+    console.log(result);
   }
 }
