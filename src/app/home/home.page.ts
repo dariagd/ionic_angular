@@ -117,18 +117,52 @@ export class HomePage {
       buttons: [
         {
           text: 'Save',
-          handler: data => {
+          handler: () => {
             console.log('Save clicked');
           }
         },
         {
           text: 'Cancel',
-          handler: data => {
+          handler: () => {
             console.log('Cancel clicked');
           }
         },
       ]
     });
     await  alert.present();
+  }
+
+  async showPrompt(){
+    const prompt = await this.alertCtrl.create({
+      header: 'Courses',
+      message: 'Enter the Course name',
+      inputs: [
+        {
+          name: 'title',
+          type: 'text',
+          placeholder: 'Course name',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          placeholder: 'Course name',
+        }
+      ],
+      buttons: [
+        {
+          text: 'Save',
+          handler: () => {
+            console.log('Save clicked');
+          }
+        },
+        {
+          text: 'Cancel',
+          handler: () => { // if write data then there will be data
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    await prompt.present();
   }
 }
