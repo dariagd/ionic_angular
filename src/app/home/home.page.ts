@@ -84,4 +84,51 @@ export class HomePage {
     const result = await confirm.onDidDismiss();
     console.log(result);
   }
+
+  async showRadio(){
+    const alert = await this.alertCtrl.create({
+      inputs: [
+        {
+          name: 'radio 1',
+          type: 'radio',
+          label: 'Java',
+          value: 'Java',
+        },
+        {
+          name: 'radio 2',
+          type: 'radio',
+          label: 'Python',
+          value: 'Python',
+          checked: true,
+        },
+        {
+          name: 'radio 3',
+          type: 'radio',
+          label: 'Android',
+          value: 'Android',
+        },
+        {
+          name: 'radio 3',
+          type: 'radio',
+          label: 'AngularJs',
+          value: 'AngularJs',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Save clicked');
+          }
+        },
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+      ]
+    });
+    await  alert.present();
+  }
 }
