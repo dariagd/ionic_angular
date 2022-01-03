@@ -61,15 +61,27 @@ export class HomePage {
     console.log('onDismiss resolved with role and data', role, data);
   }
 
-  async showAlert(){
-    const alert = await this.alertCtrl.create({
-      header: 'Alert',
-      subHeader: 'Some Alert',
-      message: 'Are you sure?',
-      buttons: ['Yes', 'No']
+  async showConfirm(){
+    const confirm = await this.alertCtrl.create({
+      header: 'Confirmation',
+      message: 'Do you want to exit this game?',
+      buttons: [{
+        text: 'Ok',
+        role: 'Ok',
+        handler: () => {
+          console.log('Confirm Ok');
+        }
+      }, {
+        text: 'Cancel',
+        role: 'Cancel',
+        handler: () => {
+          console.log('Confirm Cancel.');
+        }
+      }
+      ]
     });
-    await alert.present();
-    const result = await alert.onDidDismiss();
+    await confirm.present();
+    const result = await confirm.onDidDismiss();
     console.log(result);
   }
 }
