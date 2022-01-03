@@ -25,3 +25,19 @@
 #container a {
   text-decoration: none;
 }
+
+action-sheet-home-page {
+  .ion-md-share {
+    color: rgb(38, 241, 11);
+  }
+  .ion-md-arrow-dropright-circle {
+    color: rgb(240, 34, 137);
+  }
+  .ion-md-heart-outline {
+    color: rgba(31, 133, 60, 0.904);
+  }
+  .action-sheet-cancel ion-icon,
+  .action-sheet-destructive ion-icon {
+    color: #e61010;
+  }
+}
