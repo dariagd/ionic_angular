@@ -165,4 +165,47 @@ export class HomePage {
     });
     await prompt.present();
   }
+
+  async showCheckBoxAlert(){
+    const alert = await this.alertCtrl.create({
+      header: 'Games',
+      message: 'Select your favorite game',
+      inputs: [
+        {
+          name: 'checkbox',
+          type: 'checkbox',
+          label: 'Hockey',
+          value: 'Hockey',
+        },
+        {
+          name: 'checkbox',
+          type: 'checkbox',
+          label: 'Cricket',
+          value: 'Cricket',
+          checked: true,
+        },
+        {
+          name: 'checkbox',
+          type: 'checkbox',
+          label: 'Badminton',
+          value: 'Badminton',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Save',
+          handler: () => {
+            console.log('Save clicked');
+          }
+        },
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Cancel clocked');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
 }
